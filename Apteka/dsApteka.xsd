@@ -1,0 +1,1181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsApteka" targetNamespace="http://tempuri.org/dsApteka.xsd" xmlns:mstns="http://tempuri.org/dsApteka.xsd" xmlns="http://tempuri.org/dsApteka.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" GeneratorFunctionsComponentClassName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" UserFunctionsComponentName="QueriesTableAdapter" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="AptekaConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="AptekaConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Apteka.Properties.Settings.GlobalReference.Default.AptekaConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="adpBasketTableAdapter" GeneratorDataComponentClassName="adpBasketTableAdapter" Name="adpBasket" UserDataComponentName="adpBasketTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="AptekaConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT goods.name, Basket.count, Basket.idU, goods.itogprice,  Basket.idG, Basket.idB, goods.stock
+FROM     Basket INNER JOIN
+                  goods ON Basket.idG = goods.idG</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="name" DataSetColumn="name" />
+              <Mapping SourceColumn="idU" DataSetColumn="idU" />
+              <Mapping SourceColumn="stock" DataSetColumn="stock" />
+              <Mapping SourceColumn="idG" DataSetColumn="idG" />
+              <Mapping SourceColumn="idB" DataSetColumn="idB" />
+              <Mapping SourceColumn="itogprice" DataSetColumn="itogprice" />
+              <Mapping SourceColumn="count" DataSetColumn="count" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="adpFavoriteTableAdapter" GeneratorDataComponentClassName="adpFavoriteTableAdapter" Name="adpFavorite" UserDataComponentName="adpFavoriteTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="AptekaConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT goods.image, Favorite.idG, Favorite.idU, goods.name, goods.info, goods.comp, goods.recomend, goods.contrindic, cast(goods.[count] as nvarchar(10)) +' ' + cast(TG.unit as nvarchar(5)) + 'x ' + cast(goods.dosage as nvarchar(10)) as count, goods.shelfLife, goods.storageCond, goods.manufacture, cast(goods.itogprice as nvarchar(10)) + ' Р' as itogprice
+FROM Favorite INNER JOIN  goods ON Favorite.idG = goods.idG INNER JOIN  TG ON goods.idTG = TG.idTG</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="image" DataSetColumn="image" />
+              <Mapping SourceColumn="idG" DataSetColumn="idG" />
+              <Mapping SourceColumn="idU" DataSetColumn="idU" />
+              <Mapping SourceColumn="name" DataSetColumn="name" />
+              <Mapping SourceColumn="info" DataSetColumn="info" />
+              <Mapping SourceColumn="comp" DataSetColumn="comp" />
+              <Mapping SourceColumn="recomend" DataSetColumn="recomend" />
+              <Mapping SourceColumn="contrindic" DataSetColumn="contrindic" />
+              <Mapping SourceColumn="shelfLife" DataSetColumn="shelfLife" />
+              <Mapping SourceColumn="storageCond" DataSetColumn="storageCond" />
+              <Mapping SourceColumn="manufacture" DataSetColumn="manufacture" />
+              <Mapping SourceColumn="itogprice" DataSetColumn="itogprice" />
+              <Mapping SourceColumn="count" DataSetColumn="count" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="adpOrderInfoTableAdapter" GeneratorDataComponentClassName="adpOrderInfoTableAdapter" Name="adpOrderInfo" UserDataComponentName="adpOrderInfoTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="AptekaConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT OG.idU, OG.idO, Goods.image, Goods.name, OG.count, Goods.itogprice AS price, OG.count * Goods.itogprice AS itogprice
+FROM     OG INNER JOIN
+                  Goods ON OG.idG = Goods.idG</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="idU" DataSetColumn="idU" />
+              <Mapping SourceColumn="idO" DataSetColumn="idO" />
+              <Mapping SourceColumn="name" DataSetColumn="name" />
+              <Mapping SourceColumn="price" DataSetColumn="price" />
+              <Mapping SourceColumn="image" DataSetColumn="image" />
+              <Mapping SourceColumn="count" DataSetColumn="count" />
+              <Mapping SourceColumn="itogprice" DataSetColumn="itogprice" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="adpOrdersAdmAllTableAdapter" GeneratorDataComponentClassName="adpOrdersAdmAllTableAdapter" Name="adpOrdersAdmAll" UserDataComponentName="adpOrdersAdmAllTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="AptekaConnectionString (Settings)" DbObjectName="dbo.Orders" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT DISTINCT [User].lName + ' ' + [User].name + ' ' + [User].mName AS custumer, Orders.idU, COUNT(Orders.idO) AS count
+FROM     [User] INNER JOIN
+                  Orders ON [User].idU = Orders.idU
+WHERE  (Orders.status = 0) OR
+                  (Orders.status = 1)
+GROUP BY [User].lName, [User].mName, [User].name, Orders.idU</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="custumer" DataSetColumn="custumer" />
+              <Mapping SourceColumn="idU" DataSetColumn="idU" />
+              <Mapping SourceColumn="count" DataSetColumn="count" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="adpDiscardTableAdapter" GeneratorDataComponentClassName="adpDiscardTableAdapter" Name="adpDiscard" UserDataComponentName="adpDiscardTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="AptekaConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Goods.name, TG.name AS TG, Goods.dosage, Goods.stock, Goods.itogprice
+FROM     Goods INNER JOIN
+                  TG ON Goods.idTG = TG.idTG</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="name" DataSetColumn="name" />
+              <Mapping SourceColumn="TG" DataSetColumn="TG" />
+              <Mapping SourceColumn="dosage" DataSetColumn="dosage" />
+              <Mapping SourceColumn="stock" DataSetColumn="stock" />
+              <Mapping SourceColumn="itogprice" DataSetColumn="itogprice" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="BasketTableAdapter" GeneratorDataComponentClassName="BasketTableAdapter" Name="Basket" UserDataComponentName="BasketTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="AptekaConnectionString (Settings)" DbObjectName="dbo.Basket" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [dbo].[Basket] WHERE (([idB] = @Original_idB) AND ([idU] = @Original_idU) AND ([idG] = @Original_idG) AND ([count] = @Original_count))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_idB" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idB" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_idU" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idU" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_idG" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idG" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_count" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="count" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[Basket] ([idU], [idG], [count]) VALUES (@idU, @idG, @count);
+SELECT idB, idU, idG, count FROM Basket WHERE (idB = SCOPE_IDENTITY())</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@idU" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idU" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@idG" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idG" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@count" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="count" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT idB, idU, idG, count FROM dbo.Basket</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [dbo].[Basket] SET [idU] = @idU, [idG] = @idG, [count] = @count WHERE (([idB] = @Original_idB) AND ([idU] = @Original_idU) AND ([idG] = @Original_idG) AND ([count] = @Original_count));
+SELECT idB, idU, idG, count FROM Basket WHERE (idB = @idB)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@idU" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idU" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@idG" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idG" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@count" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="count" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_idB" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idB" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_idU" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idU" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_idG" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idG" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_count" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="count" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="idB" ColumnName="idB" DataSourceName="[D:\PC\DESKTOP\ПП\APTEKA\APTEKA\APTEKA.MDF].dbo.Basket" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@idB" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="idB" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="idB" DataSetColumn="idB" />
+              <Mapping SourceColumn="idU" DataSetColumn="idU" />
+              <Mapping SourceColumn="idG" DataSetColumn="idG" />
+              <Mapping SourceColumn="count" DataSetColumn="count" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="FavoriteTableAdapter" GeneratorDataComponentClassName="FavoriteTableAdapter" Name="Favorite" UserDataComponentName="FavoriteTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="AptekaConnectionString (Settings)" DbObjectName="dbo.Favorite" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [dbo].[Favorite] WHERE (([idF] = @Original_idF) AND ([idG] = @Original_idG) AND ([idU] = @Original_idU))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_idF" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idF" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_idG" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idG" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_idU" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idU" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[Favorite] ([idG], [idU]) VALUES (@idG, @idU);
+SELECT idF, idG, idU FROM Favorite WHERE (idF = SCOPE_IDENTITY())</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@idG" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idG" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@idU" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idU" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT idF, idG, idU FROM dbo.Favorite</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [dbo].[Favorite] SET [idG] = @idG, [idU] = @idU WHERE (([idF] = @Original_idF) AND ([idG] = @Original_idG) AND ([idU] = @Original_idU));
+SELECT idF, idG, idU FROM Favorite WHERE (idF = @idF)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@idG" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idG" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@idU" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idU" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_idF" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idF" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_idG" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idG" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_idU" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idU" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="idF" ColumnName="idF" DataSourceName="[D:\PC\DESKTOP\ПП\APTEKA\APTEKA\APTEKA.MDF].dbo.Favorite" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@idF" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="idF" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="idF" DataSetColumn="idF" />
+              <Mapping SourceColumn="idG" DataSetColumn="idG" />
+              <Mapping SourceColumn="idU" DataSetColumn="idU" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="GoodsTableAdapter" GeneratorDataComponentClassName="GoodsTableAdapter" Name="Goods" UserDataComponentName="GoodsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="AptekaConnectionString (Settings)" DbObjectName="dbo.Goods" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [dbo].[Goods] WHERE (([idG] = @Original_idG) AND ([name] = @Original_name) AND ([info] = @Original_info) AND ([comp] = @Original_comp) AND ([recomend] = @Original_recomend) AND ([contrindic] = @Original_contrindic) AND ([count] = @Original_count) AND ([dosage] = @Original_dosage) AND ([shelfLife] = @Original_shelfLife) AND ([storageCond] = @Original_storageCond) AND ([manufacture] = @Original_manufacture) AND ([price] = @Original_price) AND ([discount] = @Original_discount) AND ((@IsNull_itogprice = 1 AND [itogprice] IS NULL) OR ([itogprice] = @Original_itogprice)) AND ([stock] = @Original_stock) AND ([idTG] = @Original_idTG))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_idG" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idG" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_name" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="name" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_info" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="info" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_comp" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="comp" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_recomend" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="recomend" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_contrindic" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="contrindic" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_count" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="count" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_dosage" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="dosage" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_shelfLife" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="shelfLife" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_storageCond" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="storageCond" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_manufacture" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="manufacture" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@Original_price" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="price" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_discount" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="discount" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_itogprice" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="itogprice" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@Original_itogprice" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="itogprice" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_stock" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="stock" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_idTG" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idTG" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[Goods] ([name], [info], [comp], [recomend], [contrindic], [count], [dosage], [shelfLife], [storageCond], [manufacture], [price], [discount], [image], [stock], [idTG]) VALUES (@name, @info, @comp, @recomend, @contrindic, @count, @dosage, @shelfLife, @storageCond, @manufacture, @price, @discount, @image, @stock, @idTG);
+SELECT idG, name, info, comp, recomend, contrindic, count, dosage, shelfLife, storageCond, manufacture, price, discount, itogprice, image, stock, idTG FROM Goods WHERE (idG = SCOPE_IDENTITY())</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@name" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="name" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@info" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="info" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@comp" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="comp" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@recomend" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="recomend" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@contrindic" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="contrindic" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@count" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="count" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@dosage" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="dosage" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@shelfLife" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="shelfLife" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@storageCond" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="storageCond" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@manufacture" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="manufacture" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@price" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="price" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@discount" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="discount" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Binary" Direction="Input" ParameterName="@image" Precision="0" ProviderType="Image" Scale="0" Size="0" SourceColumn="image" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@stock" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="stock" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@idTG" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idTG" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT idG, name, info, comp, recomend, contrindic, count, dosage, shelfLife, storageCond, manufacture, price, discount, itogprice, image, stock, idTG FROM dbo.Goods</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [dbo].[Goods] SET [name] = @name, [info] = @info, [comp] = @comp, [recomend] = @recomend, [contrindic] = @contrindic, [count] = @count, [dosage] = @dosage, [shelfLife] = @shelfLife, [storageCond] = @storageCond, [manufacture] = @manufacture, [price] = @price, [discount] = @discount, [image] = @image, [stock] = @stock, [idTG] = @idTG WHERE (([idG] = @Original_idG) AND ([name] = @Original_name) AND ([info] = @Original_info) AND ([comp] = @Original_comp) AND ([recomend] = @Original_recomend) AND ([contrindic] = @Original_contrindic) AND ([count] = @Original_count) AND ([dosage] = @Original_dosage) AND ([shelfLife] = @Original_shelfLife) AND ([storageCond] = @Original_storageCond) AND ([manufacture] = @Original_manufacture) AND ([price] = @Original_price) AND ([discount] = @Original_discount) AND ((@IsNull_itogprice = 1 AND [itogprice] IS NULL) OR ([itogprice] = @Original_itogprice)) AND ([stock] = @Original_stock) AND ([idTG] = @Original_idTG));
+SELECT idG, name, info, comp, recomend, contrindic, count, dosage, shelfLife, storageCond, manufacture, price, discount, itogprice, image, stock, idTG FROM Goods WHERE (idG = @idG)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@name" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="name" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@info" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="info" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@comp" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="comp" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@recomend" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="recomend" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@contrindic" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="contrindic" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@count" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="count" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@dosage" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="dosage" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@shelfLife" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="shelfLife" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@storageCond" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="storageCond" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@manufacture" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="manufacture" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@price" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="price" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@discount" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="discount" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Binary" Direction="Input" ParameterName="@image" Precision="0" ProviderType="Image" Scale="0" Size="0" SourceColumn="image" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@stock" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="stock" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@idTG" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idTG" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_idG" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idG" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_name" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="name" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_info" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="info" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_comp" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="comp" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_recomend" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="recomend" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_contrindic" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="contrindic" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_count" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="count" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_dosage" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="dosage" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_shelfLife" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="shelfLife" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_storageCond" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="storageCond" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_manufacture" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="manufacture" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@Original_price" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="price" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_discount" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="discount" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_itogprice" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="itogprice" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@Original_itogprice" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="itogprice" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_stock" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="stock" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_idTG" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idTG" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="idG" ColumnName="idG" DataSourceName="[D:\PC\DESKTOP\ПП\APTEKA\APTEKA\APTEKA.MDF].dbo.Goods" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@idG" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="idG" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="idG" DataSetColumn="idG" />
+              <Mapping SourceColumn="name" DataSetColumn="name" />
+              <Mapping SourceColumn="info" DataSetColumn="info" />
+              <Mapping SourceColumn="comp" DataSetColumn="comp" />
+              <Mapping SourceColumn="recomend" DataSetColumn="recomend" />
+              <Mapping SourceColumn="contrindic" DataSetColumn="contrindic" />
+              <Mapping SourceColumn="count" DataSetColumn="count" />
+              <Mapping SourceColumn="dosage" DataSetColumn="dosage" />
+              <Mapping SourceColumn="shelfLife" DataSetColumn="shelfLife" />
+              <Mapping SourceColumn="storageCond" DataSetColumn="storageCond" />
+              <Mapping SourceColumn="manufacture" DataSetColumn="manufacture" />
+              <Mapping SourceColumn="price" DataSetColumn="price" />
+              <Mapping SourceColumn="discount" DataSetColumn="discount" />
+              <Mapping SourceColumn="itogprice" DataSetColumn="itogprice" />
+              <Mapping SourceColumn="image" DataSetColumn="image" />
+              <Mapping SourceColumn="stock" DataSetColumn="stock" />
+              <Mapping SourceColumn="idTG" DataSetColumn="idTG" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="OGTableAdapter" GeneratorDataComponentClassName="OGTableAdapter" Name="OG" UserDataComponentName="OGTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="AptekaConnectionString (Settings)" DbObjectName="dbo.OG" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [dbo].[OG] WHERE (([idOG] = @Original_idOG) AND ([idO] = @Original_idO) AND ([idG] = @Original_idG) AND ([idU] = @Original_idU) AND ([count] = @Original_count))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_idOG" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idOG" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_idO" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idO" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_idG" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idG" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_idU" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idU" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_count" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="count" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[OG] ([idO], [idG], [idU], [count]) VALUES (@idO, @idG, @idU, @count);
+SELECT idOG, idO, idG, idU, count FROM OG WHERE (idOG = SCOPE_IDENTITY())</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@idO" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idO" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@idG" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idG" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@idU" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idU" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@count" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="count" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT idOG, idO, idG, idU, count FROM dbo.OG</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [dbo].[OG] SET [idO] = @idO, [idG] = @idG, [idU] = @idU, [count] = @count WHERE (([idOG] = @Original_idOG) AND ([idO] = @Original_idO) AND ([idG] = @Original_idG) AND ([idU] = @Original_idU) AND ([count] = @Original_count));
+SELECT idOG, idO, idG, idU, count FROM OG WHERE (idOG = @idOG)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@idO" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idO" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@idG" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idG" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@idU" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idU" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@count" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="count" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_idOG" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idOG" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_idO" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idO" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_idG" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idG" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_idU" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idU" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_count" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="count" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="idOG" ColumnName="idOG" DataSourceName="[D:\PC\DESKTOP\ПП\APTEKA\APTEKA\APTEKA.MDF].dbo.OG" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@idOG" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="idOG" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="idOG" DataSetColumn="idOG" />
+              <Mapping SourceColumn="idO" DataSetColumn="idO" />
+              <Mapping SourceColumn="idG" DataSetColumn="idG" />
+              <Mapping SourceColumn="idU" DataSetColumn="idU" />
+              <Mapping SourceColumn="count" DataSetColumn="count" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="OrdersTableAdapter" GeneratorDataComponentClassName="OrdersTableAdapter" Name="Orders" UserDataComponentName="OrdersTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="AptekaConnectionString (Settings)" DbObjectName="dbo.Orders" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [dbo].[Orders] WHERE (([idO] = @Original_idO) AND ([cost] = @Original_cost) AND ([payment] = @Original_payment) AND ([status] = @Original_status) AND ([dateStart] = @Original_dateStart) AND ([dateEnd] = @Original_dateEnd) AND ((@IsNull_statusStr = 1 AND [statusStr] IS NULL) OR ([statusStr] = @Original_statusStr)) AND ([idU] = @Original_idU) AND ((@IsNull_idUM = 1 AND [idUM] IS NULL) OR ([idUM] = @Original_idUM)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_idO" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idO" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@Original_cost" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="cost" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_payment" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="payment" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_status" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="status" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Original_dateStart" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="dateStart" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_dateEnd" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="dateEnd" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_statusStr" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="statusStr" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_statusStr" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="statusStr" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_idU" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idU" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_idUM" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idUM" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_idUM" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idUM" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[Orders] ([cost], [payment], [status], [dateStart], [dateEnd], [statusStr], [idU], [idUM]) VALUES (@cost, @payment, @status, @dateStart, @dateEnd, @statusStr, @idU, @idUM);
+SELECT idO, cost, payment, status, dateStart, dateEnd, statusStr, idU, idUM FROM Orders WHERE (idO = SCOPE_IDENTITY())</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@cost" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="cost" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@payment" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="payment" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@status" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="status" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@dateStart" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="dateStart" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@dateEnd" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="dateEnd" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@statusStr" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="statusStr" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@idU" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idU" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@idUM" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idUM" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT idO, cost, payment, status, dateStart, dateEnd, statusStr, idU, idUM FROM dbo.Orders</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [dbo].[Orders] SET [cost] = @cost, [payment] = @payment, [status] = @status, [dateStart] = @dateStart, [dateEnd] = @dateEnd, [statusStr] = @statusStr, [idU] = @idU, [idUM] = @idUM WHERE (([idO] = @Original_idO) AND ([cost] = @Original_cost) AND ([payment] = @Original_payment) AND ([status] = @Original_status) AND ([dateStart] = @Original_dateStart) AND ([dateEnd] = @Original_dateEnd) AND ((@IsNull_statusStr = 1 AND [statusStr] IS NULL) OR ([statusStr] = @Original_statusStr)) AND ([idU] = @Original_idU) AND ((@IsNull_idUM = 1 AND [idUM] IS NULL) OR ([idUM] = @Original_idUM)));
+SELECT idO, cost, payment, status, dateStart, dateEnd, statusStr, idU, idUM FROM Orders WHERE (idO = @idO)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@cost" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="cost" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@payment" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="payment" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@status" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="status" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@dateStart" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="dateStart" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@dateEnd" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="dateEnd" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@statusStr" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="statusStr" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@idU" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idU" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@idUM" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idUM" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_idO" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idO" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@Original_cost" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="cost" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_payment" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="payment" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_status" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="status" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Original_dateStart" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="dateStart" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_dateEnd" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="dateEnd" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_statusStr" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="statusStr" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_statusStr" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="statusStr" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_idU" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idU" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_idUM" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idUM" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_idUM" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idUM" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="idO" ColumnName="idO" DataSourceName="[D:\PC\DESKTOP\ПП\APTEKA\APTEKA\APTEKA.MDF].dbo.Orders" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@idO" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="idO" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="idO" DataSetColumn="idO" />
+              <Mapping SourceColumn="cost" DataSetColumn="cost" />
+              <Mapping SourceColumn="payment" DataSetColumn="payment" />
+              <Mapping SourceColumn="status" DataSetColumn="status" />
+              <Mapping SourceColumn="dateStart" DataSetColumn="dateStart" />
+              <Mapping SourceColumn="dateEnd" DataSetColumn="dateEnd" />
+              <Mapping SourceColumn="statusStr" DataSetColumn="statusStr" />
+              <Mapping SourceColumn="idU" DataSetColumn="idU" />
+              <Mapping SourceColumn="idUM" DataSetColumn="idUM" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TGTableAdapter" GeneratorDataComponentClassName="TGTableAdapter" Name="TG" UserDataComponentName="TGTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="AptekaConnectionString (Settings)" DbObjectName="dbo.TG" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [dbo].[TG] WHERE (([idTG] = @Original_idTG) AND ([name] = @Original_name) AND ([unit] = @Original_unit))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_idTG" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idTG" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_name" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="name" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_unit" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="unit" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[TG] ([name], [unit]) VALUES (@name, @unit);
+SELECT idTG, name, unit FROM TG WHERE (idTG = SCOPE_IDENTITY())</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@name" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="name" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@unit" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="unit" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT idTG, name, unit FROM dbo.TG</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [dbo].[TG] SET [name] = @name, [unit] = @unit WHERE (([idTG] = @Original_idTG) AND ([name] = @Original_name) AND ([unit] = @Original_unit));
+SELECT idTG, name, unit FROM TG WHERE (idTG = @idTG)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@name" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="name" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@unit" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="unit" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_idTG" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idTG" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_name" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="name" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_unit" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="unit" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="idTG" ColumnName="idTG" DataSourceName="[D:\PC\DESKTOP\ПП\APTEKA\APTEKA\APTEKA.MDF].dbo.TG" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@idTG" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="idTG" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="idTG" DataSetColumn="idTG" />
+              <Mapping SourceColumn="name" DataSetColumn="name" />
+              <Mapping SourceColumn="unit" DataSetColumn="unit" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="UserTableAdapter" GeneratorDataComponentClassName="UserTableAdapter" Name="User" UserDataComponentName="UserTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="AptekaConnectionString (Settings)" DbObjectName="dbo.[User]" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [dbo].[User] WHERE (([idU] = @Original_idU) AND ([lName] = @Original_lName) AND ([name] = @Original_name) AND ([mName] = @Original_mName) AND ([bDay] = @Original_bDay) AND ([index] = @Original_index) AND ([city] = @Original_city) AND ([street] = @Original_street) AND ([dom] = @Original_dom) AND ([float] = @Original_float) AND ([phone] = @Original_phone) AND ([login] = @Original_login) AND ([password] = @Original_password) AND ([email] = @Original_email) AND ([type] = @Original_type) AND ((@IsNull_typeString = 1 AND [typeString] IS NULL) OR ([typeString] = @Original_typeString)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_idU" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idU" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_lName" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="lName" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_name" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="name" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_mName" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="mName" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Original_bDay" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="bDay" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_index" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="index" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_city" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="city" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_street" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="street" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_dom" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="dom" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_float" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="float" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_phone" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="phone" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_login" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="login" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_password" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="password" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_email" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="email" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_type" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="type" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_typeString" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="typeString" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_typeString" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="typeString" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[User] ([lName], [name], [mName], [bDay], [index], [city], [street], [dom], [float], [phone], [login], [password], [email], [type], [typeString]) VALUES (@lName, @name, @mName, @bDay, @index, @city, @street, @dom, @float, @phone, @login, @password, @email, @type, @typeString);
+SELECT idU, lName, name, mName, bDay, [index], city, street, dom, float, phone, login, password, email, type, typeString FROM [User] WHERE (idU = SCOPE_IDENTITY())</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@lName" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="lName" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@name" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="name" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@mName" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="mName" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@bDay" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="bDay" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@index" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="index" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@city" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="city" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@street" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="street" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@dom" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="dom" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@float" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="float" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@phone" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="phone" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@login" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="login" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@password" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="password" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@email" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="email" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@type" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="type" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@typeString" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="typeString" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT idU, lName, name, mName, bDay, [index], city, street, dom, float, phone, login, password, email, type, typeString FROM dbo.[User]</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [dbo].[User] SET [lName] = @lName, [name] = @name, [mName] = @mName, [bDay] = @bDay, [index] = @index, [city] = @city, [street] = @street, [dom] = @dom, [float] = @float, [phone] = @phone, [login] = @login, [password] = @password, [email] = @email, [type] = @type, [typeString] = @typeString WHERE (([idU] = @Original_idU) AND ([lName] = @Original_lName) AND ([name] = @Original_name) AND ([mName] = @Original_mName) AND ([bDay] = @Original_bDay) AND ([index] = @Original_index) AND ([city] = @Original_city) AND ([street] = @Original_street) AND ([dom] = @Original_dom) AND ([float] = @Original_float) AND ([phone] = @Original_phone) AND ([login] = @Original_login) AND ([password] = @Original_password) AND ([email] = @Original_email) AND ([type] = @Original_type) AND ((@IsNull_typeString = 1 AND [typeString] IS NULL) OR ([typeString] = @Original_typeString)));
+SELECT idU, lName, name, mName, bDay, [index], city, street, dom, float, phone, login, password, email, type, typeString FROM [User] WHERE (idU = @idU)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@lName" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="lName" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@name" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="name" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@mName" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="mName" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@bDay" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="bDay" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@index" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="index" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@city" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="city" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@street" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="street" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@dom" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="dom" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@float" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="float" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@phone" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="phone" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@login" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="login" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@password" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="password" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@email" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="email" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@type" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="type" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@typeString" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="typeString" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_idU" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idU" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_lName" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="lName" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_name" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="name" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_mName" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="mName" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Original_bDay" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="bDay" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_index" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="index" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_city" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="city" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_street" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="street" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_dom" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="dom" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_float" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="float" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_phone" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="phone" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_login" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="login" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_password" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="password" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_email" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="email" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_type" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="type" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_typeString" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="typeString" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_typeString" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="typeString" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="idU" ColumnName="idU" DataSourceName="[D:\PC\DESKTOP\ПП\APTEKA\APTEKA\APTEKA.MDF].dbo.[User]" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@idU" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="idU" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="idU" DataSetColumn="idU" />
+              <Mapping SourceColumn="lName" DataSetColumn="lName" />
+              <Mapping SourceColumn="name" DataSetColumn="name" />
+              <Mapping SourceColumn="mName" DataSetColumn="mName" />
+              <Mapping SourceColumn="bDay" DataSetColumn="bDay" />
+              <Mapping SourceColumn="index" DataSetColumn="index" />
+              <Mapping SourceColumn="city" DataSetColumn="city" />
+              <Mapping SourceColumn="street" DataSetColumn="street" />
+              <Mapping SourceColumn="dom" DataSetColumn="dom" />
+              <Mapping SourceColumn="float" DataSetColumn="float" />
+              <Mapping SourceColumn="phone" DataSetColumn="phone" />
+              <Mapping SourceColumn="login" DataSetColumn="login" />
+              <Mapping SourceColumn="password" DataSetColumn="password" />
+              <Mapping SourceColumn="email" DataSetColumn="email" />
+              <Mapping SourceColumn="type" DataSetColumn="type" />
+              <Mapping SourceColumn="typeString" DataSetColumn="typeString" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="adpOrdersAdmTableAdapter" GeneratorDataComponentClassName="adpOrdersAdmTableAdapter" Name="adpOrdersAdm" UserDataComponentName="adpOrdersAdmTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="AptekaConnectionString (Settings)" DbObjectName="dbo.Orders" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT DISTINCT [User].lName + ' ' + [User].name + ' ' + [User].mName AS custumer, Orders.idU, COUNT(Orders.idO) AS count, Orders.idUM
+FROM     [User] INNER JOIN
+                  Orders ON [User].idU = Orders.idU
+WHERE  (Orders.status = 0) OR
+                  (Orders.status = 1)
+GROUP BY [User].lName, [User].mName, [User].name, Orders.idU, Orders.idUM</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="custumer" DataSetColumn="custumer" />
+              <Mapping SourceColumn="idU" DataSetColumn="idU" />
+              <Mapping SourceColumn="count" DataSetColumn="count" />
+              <Mapping SourceColumn="idUM" DataSetColumn="idUM" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources>
+          <DbSource ConnectionRef="AptekaConnectionString (Settings)" DbObjectName="dbo.MMO" DbObjectType="StoredProcedure" GenerateShortCommands="true" GeneratorSourceName="MMO" MethodsParameterType="CLR" Modifier="Public" Name="MMO" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="MMO">
+            <SelectCommand>
+              <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
+                <CommandText>dbo.MMO</CommandText>
+                <Parameters>
+                  <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="ReturnValue" ParameterName="@RETURN_VALUE" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                </Parameters>
+              </DbCommand>
+            </SelectCommand>
+          </DbSource>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsApteka" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="dsApteka" msprop:Generator_UserDSName="dsApteka">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="adpBasket" msprop:Generator_TableClassName="adpBasketDataTable" msprop:Generator_TableVarName="tableadpBasket" msprop:Generator_TablePropName="adpBasket" msprop:Generator_RowDeletingName="adpBasketRowDeleting" msprop:Generator_RowChangingName="adpBasketRowChanging" msprop:Generator_RowEvHandlerName="adpBasketRowChangeEventHandler" msprop:Generator_RowDeletedName="adpBasketRowDeleted" msprop:Generator_UserTableName="adpBasket" msprop:Generator_RowChangedName="adpBasketRowChanged" msprop:Generator_RowEvArgName="adpBasketRowChangeEvent" msprop:Generator_RowClassName="adpBasketRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="name" msprop:Generator_ColumnVarNameInTable="columnname" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_ColumnPropNameInTable="nameColumn" msprop:Generator_UserColumnName="name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="idU" msprop:Generator_ColumnVarNameInTable="columnidU" msprop:Generator_ColumnPropNameInRow="idU" msprop:Generator_ColumnPropNameInTable="idUColumn" msprop:Generator_UserColumnName="idU" type="xs:int" />
+              <xs:element name="stock" msprop:Generator_ColumnVarNameInTable="columnstock" msprop:Generator_ColumnPropNameInRow="stock" msprop:Generator_ColumnPropNameInTable="stockColumn" msprop:Generator_UserColumnName="stock" type="xs:int" />
+              <xs:element name="idG" msprop:Generator_ColumnVarNameInTable="columnidG" msprop:Generator_ColumnPropNameInRow="idG" msprop:Generator_ColumnPropNameInTable="idGColumn" msprop:Generator_UserColumnName="idG" type="xs:int" />
+              <xs:element name="idB" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidB" msprop:Generator_ColumnPropNameInRow="idB" msprop:Generator_ColumnPropNameInTable="idBColumn" msprop:Generator_UserColumnName="idB" type="xs:int" />
+              <xs:element name="itogprice" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnitogprice" msprop:Generator_ColumnPropNameInRow="itogprice" msprop:Generator_ColumnPropNameInTable="itogpriceColumn" msprop:Generator_UserColumnName="itogprice" type="xs:decimal" minOccurs="0" />
+              <xs:element name="count" msprop:Generator_ColumnVarNameInTable="columncount" msprop:Generator_ColumnPropNameInRow="count" msprop:Generator_ColumnPropNameInTable="countColumn" msprop:Generator_UserColumnName="count" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="adpFavorite" msprop:Generator_TableClassName="adpFavoriteDataTable" msprop:Generator_TableVarName="tableadpFavorite" msprop:Generator_TablePropName="adpFavorite" msprop:Generator_RowDeletingName="adpFavoriteRowDeleting" msprop:Generator_RowChangingName="adpFavoriteRowChanging" msprop:Generator_RowEvHandlerName="adpFavoriteRowChangeEventHandler" msprop:Generator_RowDeletedName="adpFavoriteRowDeleted" msprop:Generator_UserTableName="adpFavorite" msprop:Generator_RowChangedName="adpFavoriteRowChanged" msprop:Generator_RowEvArgName="adpFavoriteRowChangeEvent" msprop:Generator_RowClassName="adpFavoriteRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="image" msprop:Generator_ColumnVarNameInTable="columnimage" msprop:Generator_ColumnPropNameInRow="image" msprop:Generator_ColumnPropNameInTable="imageColumn" msprop:Generator_UserColumnName="image" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="idG" msprop:Generator_ColumnVarNameInTable="columnidG" msprop:Generator_ColumnPropNameInRow="idG" msprop:Generator_ColumnPropNameInTable="idGColumn" msprop:Generator_UserColumnName="idG" type="xs:int" />
+              <xs:element name="idU" msprop:Generator_ColumnVarNameInTable="columnidU" msprop:Generator_ColumnPropNameInRow="idU" msprop:Generator_ColumnPropNameInTable="idUColumn" msprop:Generator_UserColumnName="idU" type="xs:int" />
+              <xs:element name="name" msprop:Generator_ColumnVarNameInTable="columnname" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_ColumnPropNameInTable="nameColumn" msprop:Generator_UserColumnName="name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="info" msprop:Generator_ColumnVarNameInTable="columninfo" msprop:Generator_ColumnPropNameInRow="info" msprop:Generator_ColumnPropNameInTable="infoColumn" msprop:Generator_UserColumnName="info">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4000" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="comp" msprop:Generator_ColumnVarNameInTable="columncomp" msprop:Generator_ColumnPropNameInRow="comp" msprop:Generator_ColumnPropNameInTable="compColumn" msprop:Generator_UserColumnName="comp">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1000" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="recomend" msprop:Generator_ColumnVarNameInTable="columnrecomend" msprop:Generator_ColumnPropNameInRow="recomend" msprop:Generator_ColumnPropNameInTable="recomendColumn" msprop:Generator_UserColumnName="recomend">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1000" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="contrindic" msprop:Generator_ColumnVarNameInTable="columncontrindic" msprop:Generator_ColumnPropNameInRow="contrindic" msprop:Generator_ColumnPropNameInTable="contrindicColumn" msprop:Generator_UserColumnName="contrindic">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1000" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="shelfLife" msprop:Generator_ColumnVarNameInTable="columnshelfLife" msprop:Generator_ColumnPropNameInRow="shelfLife" msprop:Generator_ColumnPropNameInTable="shelfLifeColumn" msprop:Generator_UserColumnName="shelfLife" type="xs:int" />
+              <xs:element name="storageCond" msprop:Generator_ColumnVarNameInTable="columnstorageCond" msprop:Generator_ColumnPropNameInRow="storageCond" msprop:Generator_ColumnPropNameInTable="storageCondColumn" msprop:Generator_UserColumnName="storageCond">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="manufacture" msprop:Generator_ColumnVarNameInTable="columnmanufacture" msprop:Generator_ColumnPropNameInRow="manufacture" msprop:Generator_ColumnPropNameInTable="manufactureColumn" msprop:Generator_UserColumnName="manufacture">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="itogprice" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnitogprice" msprop:Generator_ColumnPropNameInRow="itogprice" msprop:Generator_ColumnPropNameInTable="itogpriceColumn" msprop:Generator_UserColumnName="itogprice" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="12" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="count" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columncount" msprop:Generator_ColumnPropNameInRow="count" msprop:Generator_ColumnPropNameInTable="countColumn" msprop:Generator_UserColumnName="count" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="28" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="adpOrderInfo" msprop:Generator_TableClassName="adpOrderInfoDataTable" msprop:Generator_TableVarName="tableadpOrderInfo" msprop:Generator_RowChangedName="adpOrderInfoRowChanged" msprop:Generator_TablePropName="adpOrderInfo" msprop:Generator_RowDeletingName="adpOrderInfoRowDeleting" msprop:Generator_RowChangingName="adpOrderInfoRowChanging" msprop:Generator_RowEvHandlerName="adpOrderInfoRowChangeEventHandler" msprop:Generator_RowDeletedName="adpOrderInfoRowDeleted" msprop:Generator_RowClassName="adpOrderInfoRow" msprop:Generator_UserTableName="adpOrderInfo" msprop:Generator_RowEvArgName="adpOrderInfoRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idU" msprop:Generator_ColumnVarNameInTable="columnidU" msprop:Generator_ColumnPropNameInRow="idU" msprop:Generator_ColumnPropNameInTable="idUColumn" msprop:Generator_UserColumnName="idU" type="xs:int" />
+              <xs:element name="idO" msprop:Generator_ColumnVarNameInTable="columnidO" msprop:Generator_ColumnPropNameInRow="idO" msprop:Generator_ColumnPropNameInTable="idOColumn" msprop:Generator_UserColumnName="idO" type="xs:int" />
+              <xs:element name="name" msprop:Generator_ColumnVarNameInTable="columnname" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_ColumnPropNameInTable="nameColumn" msprop:Generator_UserColumnName="name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="price" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnprice" msprop:Generator_ColumnPropNameInRow="price" msprop:Generator_ColumnPropNameInTable="priceColumn" msprop:Generator_UserColumnName="price" type="xs:decimal" minOccurs="0" />
+              <xs:element name="image" msprop:Generator_ColumnVarNameInTable="columnimage" msprop:Generator_ColumnPropNameInRow="image" msprop:Generator_ColumnPropNameInTable="imageColumn" msprop:Generator_UserColumnName="image" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="count" msprop:Generator_ColumnVarNameInTable="columncount" msprop:Generator_ColumnPropNameInRow="count" msprop:Generator_ColumnPropNameInTable="countColumn" msprop:Generator_UserColumnName="count" type="xs:int" />
+              <xs:element name="itogprice" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnitogprice" msprop:Generator_ColumnPropNameInRow="itogprice" msprop:Generator_ColumnPropNameInTable="itogpriceColumn" msprop:Generator_UserColumnName="itogprice" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="adpOrdersAdmAll" msprop:Generator_TableClassName="adpOrdersAdmAllDataTable" msprop:Generator_TableVarName="tableadpOrdersAdmAll" msprop:Generator_RowChangedName="adpOrdersAdmAllRowChanged" msprop:Generator_TablePropName="adpOrdersAdmAll" msprop:Generator_RowDeletingName="adpOrdersAdmAllRowDeleting" msprop:Generator_RowChangingName="adpOrdersAdmAllRowChanging" msprop:Generator_RowEvHandlerName="adpOrdersAdmAllRowChangeEventHandler" msprop:Generator_RowDeletedName="adpOrdersAdmAllRowDeleted" msprop:Generator_RowClassName="adpOrdersAdmAllRow" msprop:Generator_UserTableName="adpOrdersAdmAll" msprop:Generator_RowEvArgName="adpOrdersAdmAllRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="custumer" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columncustumer" msprop:Generator_ColumnPropNameInRow="custumer" msprop:Generator_ColumnPropNameInTable="custumerColumn" msprop:Generator_UserColumnName="custumer" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="152" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="idU" msprop:Generator_ColumnVarNameInTable="columnidU" msprop:Generator_ColumnPropNameInRow="idU" msprop:Generator_ColumnPropNameInTable="idUColumn" msprop:Generator_UserColumnName="idU" type="xs:int" />
+              <xs:element name="count" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columncount" msprop:Generator_ColumnPropNameInRow="count" msprop:Generator_ColumnPropNameInTable="countColumn" msprop:Generator_UserColumnName="count" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="adpDiscard" msprop:Generator_TableClassName="adpDiscardDataTable" msprop:Generator_TableVarName="tableadpDiscard" msprop:Generator_RowChangedName="adpDiscardRowChanged" msprop:Generator_TablePropName="adpDiscard" msprop:Generator_RowDeletingName="adpDiscardRowDeleting" msprop:Generator_RowChangingName="adpDiscardRowChanging" msprop:Generator_RowEvHandlerName="adpDiscardRowChangeEventHandler" msprop:Generator_RowDeletedName="adpDiscardRowDeleted" msprop:Generator_RowClassName="adpDiscardRow" msprop:Generator_UserTableName="adpDiscard" msprop:Generator_RowEvArgName="adpDiscardRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="name" msprop:Generator_ColumnVarNameInTable="columnname" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_ColumnPropNameInTable="nameColumn" msprop:Generator_UserColumnName="name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TG" msprop:Generator_ColumnVarNameInTable="columnTG" msprop:Generator_ColumnPropNameInRow="TG" msprop:Generator_ColumnPropNameInTable="TGColumn" msprop:Generator_UserColumnName="TG">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="dosage" msprop:Generator_ColumnVarNameInTable="columndosage" msprop:Generator_ColumnPropNameInRow="dosage" msprop:Generator_ColumnPropNameInTable="dosageColumn" msprop:Generator_UserColumnName="dosage">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="stock" msprop:Generator_ColumnVarNameInTable="columnstock" msprop:Generator_ColumnPropNameInRow="stock" msprop:Generator_ColumnPropNameInTable="stockColumn" msprop:Generator_UserColumnName="stock" type="xs:int" />
+              <xs:element name="itogprice" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnitogprice" msprop:Generator_ColumnPropNameInRow="itogprice" msprop:Generator_ColumnPropNameInTable="itogpriceColumn" msprop:Generator_UserColumnName="itogprice" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Basket" msprop:Generator_TableClassName="BasketDataTable" msprop:Generator_TableVarName="tableBasket" msprop:Generator_RowChangedName="BasketRowChanged" msprop:Generator_TablePropName="Basket" msprop:Generator_RowDeletingName="BasketRowDeleting" msprop:Generator_RowChangingName="BasketRowChanging" msprop:Generator_RowEvHandlerName="BasketRowChangeEventHandler" msprop:Generator_RowDeletedName="BasketRowDeleted" msprop:Generator_RowClassName="BasketRow" msprop:Generator_UserTableName="Basket" msprop:Generator_RowEvArgName="BasketRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idB" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidB" msprop:Generator_ColumnPropNameInRow="idB" msprop:Generator_ColumnPropNameInTable="idBColumn" msprop:Generator_UserColumnName="idB" type="xs:int" />
+              <xs:element name="idU" msprop:Generator_ColumnVarNameInTable="columnidU" msprop:Generator_ColumnPropNameInRow="idU" msprop:Generator_ColumnPropNameInTable="idUColumn" msprop:Generator_UserColumnName="idU" type="xs:int" />
+              <xs:element name="idG" msprop:Generator_ColumnVarNameInTable="columnidG" msprop:Generator_ColumnPropNameInRow="idG" msprop:Generator_ColumnPropNameInTable="idGColumn" msprop:Generator_UserColumnName="idG" type="xs:int" />
+              <xs:element name="count" msprop:Generator_ColumnVarNameInTable="columncount" msprop:Generator_ColumnPropNameInRow="count" msprop:Generator_ColumnPropNameInTable="countColumn" msprop:Generator_UserColumnName="count" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Favorite" msprop:Generator_TableClassName="FavoriteDataTable" msprop:Generator_TableVarName="tableFavorite" msprop:Generator_RowChangedName="FavoriteRowChanged" msprop:Generator_TablePropName="Favorite" msprop:Generator_RowDeletingName="FavoriteRowDeleting" msprop:Generator_RowChangingName="FavoriteRowChanging" msprop:Generator_RowEvHandlerName="FavoriteRowChangeEventHandler" msprop:Generator_RowDeletedName="FavoriteRowDeleted" msprop:Generator_RowClassName="FavoriteRow" msprop:Generator_UserTableName="Favorite" msprop:Generator_RowEvArgName="FavoriteRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idF" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidF" msprop:Generator_ColumnPropNameInRow="idF" msprop:Generator_ColumnPropNameInTable="idFColumn" msprop:Generator_UserColumnName="idF" type="xs:int" />
+              <xs:element name="idG" msprop:Generator_ColumnVarNameInTable="columnidG" msprop:Generator_ColumnPropNameInRow="idG" msprop:Generator_ColumnPropNameInTable="idGColumn" msprop:Generator_UserColumnName="idG" type="xs:int" />
+              <xs:element name="idU" msprop:Generator_ColumnVarNameInTable="columnidU" msprop:Generator_ColumnPropNameInRow="idU" msprop:Generator_ColumnPropNameInTable="idUColumn" msprop:Generator_UserColumnName="idU" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Goods" msprop:Generator_TableClassName="GoodsDataTable" msprop:Generator_TableVarName="tableGoods" msprop:Generator_RowChangedName="GoodsRowChanged" msprop:Generator_TablePropName="Goods" msprop:Generator_RowDeletingName="GoodsRowDeleting" msprop:Generator_RowChangingName="GoodsRowChanging" msprop:Generator_RowEvHandlerName="GoodsRowChangeEventHandler" msprop:Generator_RowDeletedName="GoodsRowDeleted" msprop:Generator_RowClassName="GoodsRow" msprop:Generator_UserTableName="Goods" msprop:Generator_RowEvArgName="GoodsRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idG" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidG" msprop:Generator_ColumnPropNameInRow="idG" msprop:Generator_ColumnPropNameInTable="idGColumn" msprop:Generator_UserColumnName="idG" type="xs:int" />
+              <xs:element name="name" msprop:Generator_ColumnVarNameInTable="columnname" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_ColumnPropNameInTable="nameColumn" msprop:Generator_UserColumnName="name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="info" msprop:Generator_ColumnVarNameInTable="columninfo" msprop:Generator_ColumnPropNameInRow="info" msprop:Generator_ColumnPropNameInTable="infoColumn" msprop:Generator_UserColumnName="info">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4000" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="comp" msprop:Generator_ColumnVarNameInTable="columncomp" msprop:Generator_ColumnPropNameInRow="comp" msprop:Generator_ColumnPropNameInTable="compColumn" msprop:Generator_UserColumnName="comp">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1000" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="recomend" msprop:Generator_ColumnVarNameInTable="columnrecomend" msprop:Generator_ColumnPropNameInRow="recomend" msprop:Generator_ColumnPropNameInTable="recomendColumn" msprop:Generator_UserColumnName="recomend">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1000" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="contrindic" msprop:Generator_ColumnVarNameInTable="columncontrindic" msprop:Generator_ColumnPropNameInRow="contrindic" msprop:Generator_ColumnPropNameInTable="contrindicColumn" msprop:Generator_UserColumnName="contrindic">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1000" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="count" msprop:Generator_ColumnVarNameInTable="columncount" msprop:Generator_ColumnPropNameInRow="count" msprop:Generator_ColumnPropNameInTable="countColumn" msprop:Generator_UserColumnName="count" type="xs:int" />
+              <xs:element name="dosage" msprop:Generator_ColumnVarNameInTable="columndosage" msprop:Generator_ColumnPropNameInRow="dosage" msprop:Generator_ColumnPropNameInTable="dosageColumn" msprop:Generator_UserColumnName="dosage">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="shelfLife" msprop:Generator_ColumnVarNameInTable="columnshelfLife" msprop:Generator_ColumnPropNameInRow="shelfLife" msprop:Generator_ColumnPropNameInTable="shelfLifeColumn" msprop:Generator_UserColumnName="shelfLife" type="xs:int" />
+              <xs:element name="storageCond" msprop:Generator_ColumnVarNameInTable="columnstorageCond" msprop:Generator_ColumnPropNameInRow="storageCond" msprop:Generator_ColumnPropNameInTable="storageCondColumn" msprop:Generator_UserColumnName="storageCond">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="manufacture" msprop:Generator_ColumnVarNameInTable="columnmanufacture" msprop:Generator_ColumnPropNameInRow="manufacture" msprop:Generator_ColumnPropNameInTable="manufactureColumn" msprop:Generator_UserColumnName="manufacture">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="price" msprop:Generator_ColumnVarNameInTable="columnprice" msprop:Generator_ColumnPropNameInRow="price" msprop:Generator_ColumnPropNameInTable="priceColumn" msprop:Generator_UserColumnName="price" type="xs:decimal" />
+              <xs:element name="discount" msprop:Generator_ColumnVarNameInTable="columndiscount" msprop:Generator_ColumnPropNameInRow="discount" msprop:Generator_ColumnPropNameInTable="discountColumn" msprop:Generator_UserColumnName="discount" type="xs:int" />
+              <xs:element name="itogprice" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnitogprice" msprop:Generator_ColumnPropNameInRow="itogprice" msprop:Generator_ColumnPropNameInTable="itogpriceColumn" msprop:Generator_UserColumnName="itogprice" type="xs:decimal" minOccurs="0" />
+              <xs:element name="image" msprop:Generator_ColumnVarNameInTable="columnimage" msprop:Generator_ColumnPropNameInRow="image" msprop:Generator_ColumnPropNameInTable="imageColumn" msprop:Generator_UserColumnName="image" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="stock" msprop:Generator_ColumnVarNameInTable="columnstock" msprop:Generator_ColumnPropNameInRow="stock" msprop:Generator_ColumnPropNameInTable="stockColumn" msprop:Generator_UserColumnName="stock" type="xs:int" />
+              <xs:element name="idTG" msprop:Generator_ColumnVarNameInTable="columnidTG" msprop:Generator_ColumnPropNameInRow="idTG" msprop:Generator_ColumnPropNameInTable="idTGColumn" msprop:Generator_UserColumnName="idTG" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="OG" msprop:Generator_TableClassName="OGDataTable" msprop:Generator_TableVarName="tableOG" msprop:Generator_RowChangedName="OGRowChanged" msprop:Generator_TablePropName="OG" msprop:Generator_RowDeletingName="OGRowDeleting" msprop:Generator_RowChangingName="OGRowChanging" msprop:Generator_RowEvHandlerName="OGRowChangeEventHandler" msprop:Generator_RowDeletedName="OGRowDeleted" msprop:Generator_RowClassName="OGRow" msprop:Generator_UserTableName="OG" msprop:Generator_RowEvArgName="OGRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idOG" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidOG" msprop:Generator_ColumnPropNameInRow="idOG" msprop:Generator_ColumnPropNameInTable="idOGColumn" msprop:Generator_UserColumnName="idOG" type="xs:int" />
+              <xs:element name="idO" msprop:Generator_ColumnVarNameInTable="columnidO" msprop:Generator_ColumnPropNameInRow="idO" msprop:Generator_ColumnPropNameInTable="idOColumn" msprop:Generator_UserColumnName="idO" type="xs:int" />
+              <xs:element name="idG" msprop:Generator_ColumnVarNameInTable="columnidG" msprop:Generator_ColumnPropNameInRow="idG" msprop:Generator_ColumnPropNameInTable="idGColumn" msprop:Generator_UserColumnName="idG" type="xs:int" />
+              <xs:element name="idU" msprop:Generator_ColumnVarNameInTable="columnidU" msprop:Generator_ColumnPropNameInRow="idU" msprop:Generator_ColumnPropNameInTable="idUColumn" msprop:Generator_UserColumnName="idU" type="xs:int" />
+              <xs:element name="count" msprop:Generator_ColumnVarNameInTable="columncount" msprop:Generator_ColumnPropNameInRow="count" msprop:Generator_ColumnPropNameInTable="countColumn" msprop:Generator_UserColumnName="count" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Orders" msprop:Generator_TableClassName="OrdersDataTable" msprop:Generator_TableVarName="tableOrders" msprop:Generator_RowChangedName="OrdersRowChanged" msprop:Generator_TablePropName="Orders" msprop:Generator_RowDeletingName="OrdersRowDeleting" msprop:Generator_RowChangingName="OrdersRowChanging" msprop:Generator_RowEvHandlerName="OrdersRowChangeEventHandler" msprop:Generator_RowDeletedName="OrdersRowDeleted" msprop:Generator_RowClassName="OrdersRow" msprop:Generator_UserTableName="Orders" msprop:Generator_RowEvArgName="OrdersRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idO" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidO" msprop:Generator_ColumnPropNameInRow="idO" msprop:Generator_ColumnPropNameInTable="idOColumn" msprop:Generator_UserColumnName="idO" type="xs:int" />
+              <xs:element name="cost" msprop:Generator_ColumnVarNameInTable="columncost" msprop:Generator_ColumnPropNameInRow="cost" msprop:Generator_ColumnPropNameInTable="costColumn" msprop:Generator_UserColumnName="cost" type="xs:decimal" />
+              <xs:element name="payment" msprop:Generator_ColumnVarNameInTable="columnpayment" msprop:Generator_ColumnPropNameInRow="payment" msprop:Generator_ColumnPropNameInTable="paymentColumn" msprop:Generator_UserColumnName="payment">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="status" msprop:Generator_ColumnVarNameInTable="columnstatus" msprop:Generator_ColumnPropNameInRow="status" msprop:Generator_ColumnPropNameInTable="statusColumn" msprop:Generator_UserColumnName="status" type="xs:int" />
+              <xs:element name="dateStart" msprop:Generator_ColumnVarNameInTable="columndateStart" msprop:Generator_ColumnPropNameInRow="dateStart" msprop:Generator_ColumnPropNameInTable="dateStartColumn" msprop:Generator_UserColumnName="dateStart" type="xs:dateTime" />
+              <xs:element name="dateEnd" msprop:Generator_ColumnVarNameInTable="columndateEnd" msprop:Generator_ColumnPropNameInRow="dateEnd" msprop:Generator_ColumnPropNameInTable="dateEndColumn" msprop:Generator_UserColumnName="dateEnd" type="xs:dateTime" />
+              <xs:element name="statusStr" msprop:Generator_ColumnVarNameInTable="columnstatusStr" msprop:Generator_ColumnPropNameInRow="statusStr" msprop:Generator_ColumnPropNameInTable="statusStrColumn" msprop:Generator_UserColumnName="statusStr" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="idU" msprop:Generator_ColumnVarNameInTable="columnidU" msprop:Generator_ColumnPropNameInRow="idU" msprop:Generator_ColumnPropNameInTable="idUColumn" msprop:Generator_UserColumnName="idU" type="xs:int" />
+              <xs:element name="idUM" msprop:Generator_ColumnVarNameInTable="columnidUM" msprop:Generator_ColumnPropNameInRow="idUM" msprop:Generator_ColumnPropNameInTable="idUMColumn" msprop:Generator_UserColumnName="idUM" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="TG" msprop:Generator_TableClassName="TGDataTable" msprop:Generator_TableVarName="tableTG" msprop:Generator_RowChangedName="TGRowChanged" msprop:Generator_TablePropName="TG" msprop:Generator_RowDeletingName="TGRowDeleting" msprop:Generator_RowChangingName="TGRowChanging" msprop:Generator_RowEvHandlerName="TGRowChangeEventHandler" msprop:Generator_RowDeletedName="TGRowDeleted" msprop:Generator_RowClassName="TGRow" msprop:Generator_UserTableName="TG" msprop:Generator_RowEvArgName="TGRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idTG" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidTG" msprop:Generator_ColumnPropNameInRow="idTG" msprop:Generator_ColumnPropNameInTable="idTGColumn" msprop:Generator_UserColumnName="idTG" type="xs:int" />
+              <xs:element name="name" msprop:Generator_ColumnVarNameInTable="columnname" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_ColumnPropNameInTable="nameColumn" msprop:Generator_UserColumnName="name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="unit" msprop:Generator_ColumnVarNameInTable="columnunit" msprop:Generator_ColumnPropNameInRow="unit" msprop:Generator_ColumnPropNameInTable="unitColumn" msprop:Generator_UserColumnName="unit">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="User" msprop:Generator_TableClassName="UserDataTable" msprop:Generator_TableVarName="tableUser" msprop:Generator_RowChangedName="UserRowChanged" msprop:Generator_TablePropName="User" msprop:Generator_RowDeletingName="UserRowDeleting" msprop:Generator_RowChangingName="UserRowChanging" msprop:Generator_RowEvHandlerName="UserRowChangeEventHandler" msprop:Generator_RowDeletedName="UserRowDeleted" msprop:Generator_RowClassName="UserRow" msprop:Generator_UserTableName="User" msprop:Generator_RowEvArgName="UserRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idU" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidU" msprop:Generator_ColumnPropNameInRow="idU" msprop:Generator_ColumnPropNameInTable="idUColumn" msprop:Generator_UserColumnName="idU" type="xs:int" />
+              <xs:element name="lName" msprop:Generator_ColumnVarNameInTable="columnlName" msprop:Generator_ColumnPropNameInRow="lName" msprop:Generator_ColumnPropNameInTable="lNameColumn" msprop:Generator_UserColumnName="lName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="name" msprop:Generator_ColumnVarNameInTable="columnname" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_ColumnPropNameInTable="nameColumn" msprop:Generator_UserColumnName="name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="mName" msprop:Generator_ColumnVarNameInTable="columnmName" msprop:Generator_ColumnPropNameInRow="mName" msprop:Generator_ColumnPropNameInTable="mNameColumn" msprop:Generator_UserColumnName="mName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="bDay" msprop:Generator_ColumnVarNameInTable="columnbDay" msprop:Generator_ColumnPropNameInRow="bDay" msprop:Generator_ColumnPropNameInTable="bDayColumn" msprop:Generator_UserColumnName="bDay" type="xs:dateTime" />
+              <xs:element name="index" msprop:Generator_ColumnVarNameInTable="columnindex" msprop:Generator_ColumnPropNameInRow="index" msprop:Generator_ColumnPropNameInTable="indexColumn" msprop:Generator_UserColumnName="index">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="12" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="city" msprop:Generator_ColumnVarNameInTable="columncity" msprop:Generator_ColumnPropNameInRow="city" msprop:Generator_ColumnPropNameInTable="cityColumn" msprop:Generator_UserColumnName="city">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="street" msprop:Generator_ColumnVarNameInTable="columnstreet" msprop:Generator_ColumnPropNameInRow="street" msprop:Generator_ColumnPropNameInTable="streetColumn" msprop:Generator_UserColumnName="street">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="dom" msprop:Generator_ColumnVarNameInTable="columndom" msprop:Generator_ColumnPropNameInRow="dom" msprop:Generator_ColumnPropNameInTable="domColumn" msprop:Generator_UserColumnName="dom" type="xs:int" />
+              <xs:element name="float" msprop:Generator_ColumnVarNameInTable="columnfloat" msprop:Generator_ColumnPropNameInRow="_float" msprop:Generator_ColumnPropNameInTable="floatColumn" msprop:Generator_UserColumnName="float" type="xs:int" />
+              <xs:element name="phone" msprop:Generator_ColumnVarNameInTable="columnphone" msprop:Generator_ColumnPropNameInRow="phone" msprop:Generator_ColumnPropNameInTable="phoneColumn" msprop:Generator_UserColumnName="phone">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="login" msprop:Generator_ColumnVarNameInTable="columnlogin" msprop:Generator_ColumnPropNameInRow="login" msprop:Generator_ColumnPropNameInTable="loginColumn" msprop:Generator_UserColumnName="login">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="password" msprop:Generator_ColumnVarNameInTable="columnpassword" msprop:Generator_ColumnPropNameInRow="password" msprop:Generator_ColumnPropNameInTable="passwordColumn" msprop:Generator_UserColumnName="password">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="email" msprop:Generator_ColumnVarNameInTable="columnemail" msprop:Generator_ColumnPropNameInRow="email" msprop:Generator_ColumnPropNameInTable="emailColumn" msprop:Generator_UserColumnName="email">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="type" msprop:Generator_ColumnVarNameInTable="columntype" msprop:Generator_ColumnPropNameInRow="type" msprop:Generator_ColumnPropNameInTable="typeColumn" msprop:Generator_UserColumnName="type" type="xs:int" />
+              <xs:element name="typeString" msprop:Generator_ColumnVarNameInTable="columntypeString" msprop:Generator_ColumnPropNameInRow="typeString" msprop:Generator_ColumnPropNameInTable="typeStringColumn" msprop:Generator_UserColumnName="typeString" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="adpOrdersAdm" msprop:Generator_TableClassName="adpOrdersAdmDataTable" msprop:Generator_TableVarName="tableadpOrdersAdm" msprop:Generator_TablePropName="adpOrdersAdm" msprop:Generator_RowDeletingName="adpOrdersAdmRowDeleting" msprop:Generator_RowChangingName="adpOrdersAdmRowChanging" msprop:Generator_RowEvHandlerName="adpOrdersAdmRowChangeEventHandler" msprop:Generator_RowDeletedName="adpOrdersAdmRowDeleted" msprop:Generator_UserTableName="adpOrdersAdm" msprop:Generator_RowChangedName="adpOrdersAdmRowChanged" msprop:Generator_RowEvArgName="adpOrdersAdmRowChangeEvent" msprop:Generator_RowClassName="adpOrdersAdmRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="custumer" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columncustumer" msprop:Generator_ColumnPropNameInRow="custumer" msprop:Generator_ColumnPropNameInTable="custumerColumn" msprop:Generator_UserColumnName="custumer" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="152" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="idU" msprop:Generator_ColumnVarNameInTable="columnidU" msprop:Generator_ColumnPropNameInRow="idU" msprop:Generator_ColumnPropNameInTable="idUColumn" msprop:Generator_UserColumnName="idU" type="xs:int" />
+              <xs:element name="count" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columncount" msprop:Generator_ColumnPropNameInRow="count" msprop:Generator_ColumnPropNameInTable="countColumn" msprop:Generator_UserColumnName="count" type="xs:int" minOccurs="0" />
+              <xs:element name="idUM" msprop:Generator_ColumnVarNameInTable="columnidUM" msprop:Generator_ColumnPropNameInRow="idUM" msprop:Generator_ColumnPropNameInTable="idUMColumn" msprop:Generator_UserColumnName="idUM" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:adpBasket" />
+      <xs:field xpath="mstns:idB" />
+    </xs:unique>
+    <xs:unique name="Basket_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Basket" />
+      <xs:field xpath="mstns:idB" />
+    </xs:unique>
+    <xs:unique name="Favorite_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Favorite" />
+      <xs:field xpath="mstns:idF" />
+    </xs:unique>
+    <xs:unique name="Goods_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Goods" />
+      <xs:field xpath="mstns:idG" />
+    </xs:unique>
+    <xs:unique name="OG_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:OG" />
+      <xs:field xpath="mstns:idOG" />
+    </xs:unique>
+    <xs:unique name="Orders_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Orders" />
+      <xs:field xpath="mstns:idO" />
+    </xs:unique>
+    <xs:unique name="TG_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:TG" />
+      <xs:field xpath="mstns:idTG" />
+    </xs:unique>
+    <xs:unique name="User_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:User" />
+      <xs:field xpath="mstns:idU" />
+    </xs:unique>
+  </xs:element>
+  <xs:annotation>
+    <xs:appinfo>
+      <msdata:Relationship name="FK_Orders_User" msdata:parent="User" msdata:child="adpOrdersAdmAll" msdata:parentkey="idU" msdata:childkey="idU" msprop:Generator_UserChildTable="adpOrdersAdmAll" msprop:Generator_ChildPropName="GetadpInfoAdmRows" msprop:Generator_UserRelationName="FK_Orders_User" msprop:Generator_ParentPropName="UserRow" msprop:Generator_RelationVarName="relationFK_Orders_User" msprop:Generator_UserParentTable="User" />
+      <msdata:Relationship name="FK_Basket_Goods" msdata:parent="Goods" msdata:child="Basket" msdata:parentkey="idG" msdata:childkey="idG" msprop:Generator_UserChildTable="Basket" msprop:Generator_ChildPropName="GetBasketRows" msprop:Generator_UserRelationName="FK_Basket_Goods" msprop:Generator_ParentPropName="GoodsRow" msprop:Generator_RelationVarName="relationFK_Basket_Goods" msprop:Generator_UserParentTable="Goods" />
+      <msdata:Relationship name="FK_Basket_User" msdata:parent="User" msdata:child="Basket" msdata:parentkey="idU" msdata:childkey="idU" msprop:Generator_UserChildTable="Basket" msprop:Generator_ChildPropName="GetBasketRows" msprop:Generator_UserRelationName="FK_Basket_User" msprop:Generator_ParentPropName="UserRow" msprop:Generator_RelationVarName="relationFK_Basket_User" msprop:Generator_UserParentTable="User" />
+      <msdata:Relationship name="FK_Favorite_Goods" msdata:parent="Goods" msdata:child="Favorite" msdata:parentkey="idG" msdata:childkey="idG" msprop:Generator_UserChildTable="Favorite" msprop:Generator_ChildPropName="GetFavoriteRows" msprop:Generator_UserRelationName="FK_Favorite_Goods" msprop:Generator_ParentPropName="GoodsRow" msprop:Generator_RelationVarName="relationFK_Favorite_Goods" msprop:Generator_UserParentTable="Goods" />
+      <msdata:Relationship name="FK_Favorite_User" msdata:parent="User" msdata:child="Favorite" msdata:parentkey="idU" msdata:childkey="idU" msprop:Generator_UserChildTable="Favorite" msprop:Generator_ChildPropName="GetFavoriteRows" msprop:Generator_UserRelationName="FK_Favorite_User" msprop:Generator_ParentPropName="UserRow" msprop:Generator_RelationVarName="relationFK_Favorite_User" msprop:Generator_UserParentTable="User" />
+      <msdata:Relationship name="FK_Goods_TG" msdata:parent="TG" msdata:child="Goods" msdata:parentkey="idTG" msdata:childkey="idTG" msprop:Generator_UserChildTable="Goods" msprop:Generator_ChildPropName="GetGoodsRows" msprop:Generator_UserRelationName="FK_Goods_TG" msprop:Generator_ParentPropName="TGRow" msprop:Generator_RelationVarName="relationFK_Goods_TG" msprop:Generator_UserParentTable="TG" />
+      <msdata:Relationship name="FK_OG_Goods" msdata:parent="Goods" msdata:child="OG" msdata:parentkey="idG" msdata:childkey="idG" msprop:Generator_UserChildTable="OG" msprop:Generator_ChildPropName="GetOGRows" msprop:Generator_UserRelationName="FK_OG_Goods" msprop:Generator_RelationVarName="relationFK_OG_Goods" msprop:Generator_UserParentTable="Goods" msprop:Generator_ParentPropName="GoodsRow" />
+      <msdata:Relationship name="FK_OG_Orders" msdata:parent="Orders" msdata:child="OG" msdata:parentkey="idO" msdata:childkey="idO" msprop:Generator_UserChildTable="OG" msprop:Generator_ChildPropName="GetOGRows" msprop:Generator_UserRelationName="FK_OG_Orders" msprop:Generator_ParentPropName="OrdersRow" msprop:Generator_RelationVarName="relationFK_OG_Orders" msprop:Generator_UserParentTable="Orders" />
+      <msdata:Relationship name="FK_OG_User" msdata:parent="User" msdata:child="OG" msdata:parentkey="idU" msdata:childkey="idU" msprop:Generator_UserChildTable="OG" msprop:Generator_ChildPropName="GetOGRows" msprop:Generator_UserRelationName="FK_OG_User" msprop:Generator_ParentPropName="UserRow" msprop:Generator_RelationVarName="relationFK_OG_User" msprop:Generator_UserParentTable="User" />
+      <msdata:Relationship name="FK_Orders_User1" msdata:parent="User" msdata:child="Orders" msdata:parentkey="idU" msdata:childkey="idU" msprop:Generator_UserChildTable="Orders" msprop:Generator_ChildPropName="GetOrdersRows" msprop:Generator_UserRelationName="FK_Orders_User1" msprop:Generator_ParentPropName="UserRow" msprop:Generator_RelationVarName="relationFK_Orders_User1" msprop:Generator_UserParentTable="User" />
+      <msdata:Relationship name="FK_Orders_User2" msdata:parent="User" msdata:child="adpOrdersAdm" msdata:parentkey="idU" msdata:childkey="idU" msprop:Generator_UserChildTable="adpOrdersAdm" msprop:Generator_ChildPropName="GetadpOrdersAdmRows" msprop:Generator_UserRelationName="FK_Orders_User2" msprop:Generator_ParentPropName="UserRow" msprop:Generator_RelationVarName="relationFK_Orders_User2" msprop:Generator_UserParentTable="User" />
+    </xs:appinfo>
+  </xs:annotation>
+</xs:schema>
