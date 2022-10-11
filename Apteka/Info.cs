@@ -79,7 +79,7 @@ namespace Apteka
 				DataRowView t = (DataRowView)bsBasket[0];
 				if ((int)t[1] == Dashboard.user.id && (int)t[2] == (id))
 				{
-					q = "UPDATE [basket] set count =" + ((int)t[3] +1)+ " where idB =" + (int)t[0];
+					q = "UPDATE [basket] set count =" + ((int)t[3] + 1) + " where idB =" + (int)t[0];
 				}
 			}
 			con.Open();
@@ -98,7 +98,7 @@ namespace Apteka
 
 		private void Info_Load(object sender, EventArgs e)
 		{
-			pbImage.Image = Dashboard.masTovar[id-1].image;
+			pbImage.Image = Dashboard.masTovar[id - 1].image;
 			lblName.Text = Dashboard.masTovar[id - 1].name;
 			lblPrice.Text = Dashboard.masTovar[id - 1].itogprice.ToString() + "₽";
 			if (Dashboard.masTovar[Info.id - 1].itogprice != Dashboard.masTovar[id - 1].price)

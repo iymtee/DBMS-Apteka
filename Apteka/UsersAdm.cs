@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Apteka
@@ -21,7 +14,7 @@ namespace Apteka
 		{
 			// TODO: This line of code loads data into the 'dsApteka.User' table. You can move, or remove it, as needed.
 			this.userTableAdapter.Fill(this.dsApteka.User);
-			bsUser.Filter = "type <>'0'"; 
+			bsUser.Filter = "type <>'0'";
 		}
 
 		private void btnAccept_Click(object sender, EventArgs e)
@@ -45,7 +38,7 @@ namespace Apteka
 					e.Cancel = true;
 					dgvAdpInfoAdm.Rows[e.RowIndex].ErrorText = "Некорректный тип пользователя!";
 				}
-			}			
+			}
 		}
 	}
 }

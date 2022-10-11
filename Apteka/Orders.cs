@@ -13,7 +13,7 @@ namespace Apteka
 		{
 			InitializeComponent();
 		}
-		
+
 		private void dgvOrders_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
 		{
 			DataRowView t = (DataRowView)bsOrder[e.RowIndex];
@@ -28,7 +28,7 @@ namespace Apteka
 			Dashboard.isSearch = true;
 			this.Close();
 		}
-		
+
 		void check()
 		{
 			for (int i = 0; i < bsOrder.Count; i++)
@@ -73,7 +73,7 @@ namespace Apteka
 
 		private void ListOrder_Load(object sender, EventArgs e)
 		{
-			if(adm)
+			if (adm)
 			{
 				bsOrder.Filter = filter;
 				dgvOrders.Columns[3].ReadOnly = false;

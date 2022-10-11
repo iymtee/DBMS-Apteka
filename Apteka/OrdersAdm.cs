@@ -36,7 +36,7 @@ namespace Apteka
 				{
 					t = (DataRowView)bsAdpOrdersAdmAll[e.RowIndex];
 					Orders.filter = "idU = '" + Convert.ToInt32(t["idU"]) + "' and (status = 0 or status = 1)";
-				}			
+				}
 				Orders.adm = true;
 				Dashboard main = this.Owner as Dashboard;
 				main.openChildForm(new Orders());

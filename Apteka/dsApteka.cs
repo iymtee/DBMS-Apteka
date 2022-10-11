@@ -5,9 +5,9 @@ namespace Apteka
 {
 
 
-	public partial class dsApteka
-	{
-	}
+    public partial class dsApteka
+    {
+    }
 }
 
 namespace Apteka.dsAptekaTableAdapters {

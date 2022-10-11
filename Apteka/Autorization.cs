@@ -19,6 +19,7 @@ namespace Apteka
 		private void pbClose_Click(object sender, EventArgs e)
 		{
 			Close();
+			Dispose();
 			DialogResult = DialogResult.Cancel;
 		}
 
@@ -68,6 +69,7 @@ namespace Apteka
 			Dashboard main = this.Owner as Dashboard;
 			main.openChildForm(new Registration());
 			this.Close();
-		}
+            this.Dispose();
+        }
 	}
 }

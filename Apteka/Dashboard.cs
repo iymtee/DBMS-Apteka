@@ -4,7 +4,6 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace Apteka
@@ -33,7 +32,7 @@ namespace Apteka
 			public string name, info, comp, recomend, contrindic, storageCond, dosage, manufacture;
 			public Image image;
 		}
-	
+
 		public void openChildForm(Form childForm)
 		{
 			isSearch = false;
@@ -48,7 +47,7 @@ namespace Apteka
 			childForm.BringToFront();
 			childForm.Show();
 		}
-		
+
 		public void Fill()
 		{
 			this.goodsTableAdapter.Fill(this.dsApteka.Goods);
@@ -65,7 +64,7 @@ namespace Apteka
 			this.userTableAdapter.Fill(this.dsApteka.User);
 			check();
 			Fill();
-		}		
+		}
 
 		void check()
 		{
@@ -151,7 +150,7 @@ namespace Apteka
 				{
 					bsUser.Filter = bsFilter;
 					check();
-					if(activeForm !=null)
+					if (activeForm != null)
 					{
 						activeForm.Close();
 						activeForm = null;
@@ -169,7 +168,7 @@ namespace Apteka
 
 		private void pbOrder_Click(object sender, EventArgs e)
 		{
-			openChildForm(new Orders());			
+			openChildForm(new Orders());
 		}
 
 		private void pbAdm_Click(object sender, EventArgs e)
@@ -189,7 +188,7 @@ namespace Apteka
 
 		private void pbExit_Click(object sender, EventArgs e)
 		{
-			if(activeForm != null) activeForm.Close();
+			if (activeForm != null) activeForm.Close();
 			user.id = -1;
 			bsFilter = "";
 			check();
@@ -198,7 +197,7 @@ namespace Apteka
 		//поиск
 		private void info_Click(object sender, EventArgs e)
 		{
-			Info.id = (Convert.ToInt32((sender as PictureBox).Name.ToString().Remove(0, 2))) +1;
+			Info.id = (Convert.ToInt32((sender as PictureBox).Name.ToString().Remove(0, 2))) + 1;
 			openChildForm(new Info());
 		}
 
@@ -339,6 +338,6 @@ namespace Apteka
 		{
 			if (Check.Letters(e.KeyChar)) e.Handled = true;
 		}
-		
+
 	}
 }

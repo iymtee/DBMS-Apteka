@@ -1,13 +1,8 @@
 ﻿using dllCheck;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Apteka
@@ -84,7 +79,7 @@ namespace Apteka
 				return;
 			}
 
-			Goods goods =  new Goods();
+			Goods goods = new Goods();
 			goods.name = tbxName.Text;
 			goods.info = tbxInfo.Text;
 			goods.comp = tbxComp.Text;
@@ -236,6 +231,6 @@ namespace Apteka
 		{
 			if (Check.NumbersWithComma(e.KeyChar)) e.Handled = true;
 		}
-	}		
-	
+	}
+
 }

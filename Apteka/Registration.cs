@@ -17,7 +17,7 @@ namespace Apteka
 			InitializeComponent();
 		}
 
-		void  Visible(TextBox ctbxPassword, PictureBox pbVisible)
+		void Visible(TextBox ctbxPassword, PictureBox pbVisible)
 		{
 			if (pbVisible.Tag.ToString() == "100")
 			{
@@ -130,7 +130,7 @@ namespace Apteka
 						return;
 					}
 					else
-					MessageBox.Show(ex.Message);
+						MessageBox.Show(ex.Message);
 				}
 			}
 		}

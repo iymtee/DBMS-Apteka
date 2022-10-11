@@ -1,13 +1,7 @@
 ﻿using dllCheck;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Apteka
@@ -45,10 +39,10 @@ namespace Apteka
 			this.adpBasketTableAdapter.Fill(this.dsApteka.adpBasket);
 			bsAdpBasket.Filter = "idU = '" + Dashboard.user.id + "'";
 			dtpDate.MinDate = DateTime.Now;
-			mtbxTime.Text = (Convert.ToInt32(DateTime.Now.Hour.ToString())+2) + DateTime.Now.Minute.ToString();
+			mtbxTime.Text = (Convert.ToInt32(DateTime.Now.Hour.ToString()) + 2) + DateTime.Now.Minute.ToString();
 			check();
 		}
-		
+
 		int count, stock;
 		bool plus = false;
 
@@ -125,7 +119,7 @@ namespace Apteka
 		{
 			e.Control.KeyPress -= new KeyPressEventHandler(KeyPress);
 			e.Control.KeyPress += new KeyPressEventHandler(KeyPress);
-		}		
+		}
 
 		private void dgvBasket_CellClick(object sender, DataGridViewCellEventArgs e)
 		{
